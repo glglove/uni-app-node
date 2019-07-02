@@ -1,4 +1,12 @@
-require('./db/db')
+var monngodb = require('./db/db')   // 引入mongodb 
+var mysql = require('./pool/mysql')  // 引入 mysql 数据库
+mysql().then(res => {
+  if(res){
+    console.log("app.js中：mysql数据库连接成功")
+  }else {
+    console.log("mysql数据库连接失败")
+  }
+})
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
