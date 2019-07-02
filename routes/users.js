@@ -16,7 +16,7 @@ router.get('/register', function(req, res, next) {
   // }
 
   // req.on('data',function(){})
-  console.log("-------->", req)
+  console.log("---------->", req)
   const params = {
     name: req.query.name,
     pwd: req.query.pwd
