@@ -1,10 +1,20 @@
 const mongoose = require('mongoose');
 const findListData = new mongoose.Schema({
-    name: {
+    title: {
         type: String,
+        
     },
-    pwd: {
+    extra: {
         type: String,
+
+    },
+    note: {
+
+    },
+    thumbnail: {
+
+    },
+    isFull: {
 
     }
 })
