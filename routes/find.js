@@ -3,6 +3,8 @@ var router = express.Router();
 const db = require('../db/db');
 const path = require('path');
 const querystring = require("querystring")
+const findApi = require('../api/find')
+var request = require('request')
 // 引入user 的模型
 const Users = require("../model/user");
 const UsersApi = require("../api/userApi");
@@ -19,6 +21,23 @@ router.post('/getlistData', function(req, res, next) {
     console.log("------->",req.method)
     if(req.url === '/getlistData' && req.method === 'POST'){
         console.log(2344535)
+        // var url = 'http://www.httpbin.org/get';
+        // request(url, function (error, response, body) {
+        //     if (!error && response.statusCode === 200) {
+        //         var data = JSON.parse(body);
+        //         res.send(data);
+        //     } else {
+        //         res.send('{error:404}');
+        //     }
+        // })
+
+        // var params = {
+        //     token: '',
+        // }
+        findApi.getRankDayData().then(res => {
+            console.log("调取getRankDayData接口后返回的数据--------》", res)
+        })
+           
         let data1 = [
             {
                 title: '快陪练',
@@ -85,14 +104,12 @@ router.post('/getlistData', function(req, res, next) {
                 isFull: true	            
             },                                                        
         ]
-        // let data1Str = JSON.stringify(data1)
         let data = {
             state: 1,
             msg: "list数据返回成功",
             Data: data1
         }
-        res.send(data)
-        // res.send(data1Str)
+        // res.send(data)
         req.on("data", function (chunk) {
             console.log("进入到on11111111111")
             resData += data
