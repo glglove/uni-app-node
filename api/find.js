@@ -55,23 +55,25 @@ module.exports = {
         var data = {
             token: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1NSIsInJvbGVzIjoiY3VzdG9tZXIiLCJpYXQiOjE1NTUzMDQyMzl9.Pznwe4fyBDXb0JIQOKZbMvca3P6a7REvHyYDbdnieSM",
         }
+        
         param = Object.assign(data, param);
 
-        console.log( param );
+        console.log( "请求的参数对象-----", param );
 
         return new  Promise((resolve, reject) => {
-            request({
+            return request({
                 url: url,
                 method: "POST",
                 json: true,
                 headers: {
                     "content-type": "application/json",
                 },
-                body: JSON.stringify(param)
+                body: param
             }, function(error, response, body) {
                 if (!error && response.statusCode == 200) {
+                    debugger
                     console.log("--------++++++++------------->",body) // 请求成功的处理逻辑
-                    resolve(body)
+                    resolve(body) 
                 }else {
                     console.log("-----------------2222222222------------>",body)
                 }
