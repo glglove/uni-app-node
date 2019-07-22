@@ -25,8 +25,17 @@ router.get('/register', function(req, res, next) {
   UsersApi.register(params).then(data => {
     // console.log("服务器请求注册接口后返回来的数据----》",data)
     // res.sendfile(path.resolve(__dirname, '../pages') + '/registerSuccess.html');
-    res.send(JSON.stringify(data))
-
+    if(data){
+      res.send(JSON.stringify(data))
+    }else {
+      res.send({
+        code: 0,
+        msg: ""
+      })
+    }
+  }).catch((error)=>{
+    console.log('register接口,访问mongodb数据库错误')
+    reject('register接口,访问mongodb数据库错误!')
   })
 });
 
