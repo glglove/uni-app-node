@@ -15,8 +15,8 @@ router.get('/register', function(req, res, next) {
   //   pwd: 123456
   // }
 
-  // req.on('data',function(){})
-  console.log("---------->", req)
+  console.log("-node-service 中register接口打印传入的req--------->", req)
+  debugger
   const params = {
     name: req.query.name,
     pwd: req.query.pwd
