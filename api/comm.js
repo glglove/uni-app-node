@@ -7,7 +7,6 @@ const request = require('request')
 
 module.exports = {
 
-
   /**
    * 获取openId
    * 

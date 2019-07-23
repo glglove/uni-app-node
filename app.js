@@ -50,6 +50,7 @@ app.use(logger('dev'));
 // app.use(express.urlencoded({ extended: false }));
 app.use(bodyParser.urlencoded({extended:false}));//解析 x-www-form-urlencoded
 app.use(bodyParser.json())
+bodyParser.urlencoded({extended: true})
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/users/register', express.static(path.join(__dirname, 'pages')))
