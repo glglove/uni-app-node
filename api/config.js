@@ -10,7 +10,7 @@
   //  gateway: "https://service.yaya91.com:8495",
   //  gateway: "http://daka.natapp1.cc",
   //  gateway: "http://47.97.160.147:8495",
-   gateway: "https://www.kaoyandaka.com",
+      gateway: "https://www.kaoyandaka.com",
   //  mobile: "https://www.kaoyandaka.com",
   //  resource: "https://www.kaoyandaka.com",
   //  activityRoot: "https://www.kaoyandaka.com", // /marketing/activity?parentShopId=288920&activityId=2990977b-e7b0-43b8-915d-7985b2c042bb"

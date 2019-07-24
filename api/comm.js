@@ -2,55 +2,48 @@ const apiConfig = require('./config')
 const baseUrl = apiConfig.baseUrl
 const request = require('request')
 
-// import https from '../utils/https.js'
-// import mockData from '../utils/mockData.js'
-
 module.exports = {
-
   /**
    * 获取openId
    * 
-   * @param {code: 微信登录码} param
    * 
-   * @return {"code": 0, "message":"success", "content":{ "openid":"UV3osCbt8XPnq1KNm9LUDw"}}
    */
-    getOpenId(param, loading = false) {
-        const url = `${baseUrl}/customerApp/login`;
-        console.log(`node中，comm.js中的 getOpenId的数据-------${apiConfig.baseURL}----------`)
-        const url = `${baseUrl}/clockInApp/pageByDate`;
-        
-        var data = {
-            token: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxIiwicm9sZXMiOiJjdXN0b21lciIsImlhdCI6MTU0OTk2NTY3NH0.8R4zpdfGo_vao8yReVJG3j1U1jkWA5Re11j0QVUwhV0",
-        }
+  getOpenId(param, loading = false) {
+      const url = `${baseUrl}/customerApp/login`;
+      console.log(`node中，comm.js中的 getOpenId的数据-------${apiConfig.baseURL}----------`)
+      const url = `${baseUrl}/clockInApp/pageByDate`;
+      
+      var data = {
+          token: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxIiwicm9sZXMiOiJjdXN0b21lciIsImlhdCI6MTU0OTk2NTY3NH0.8R4zpdfGo_vao8yReVJG3j1U1jkWA5Re11j0QVUwhV0",
+      }
 
-        param = param || {}
+      param = param || {}
 
-        param = Object.assign(data, param);
+      param = Object.assign(data, param);
 
-        console.log( "node中，comm.js中的 getOpenId请求的参数对象-----", param );
+      console.log( "node中，comm.js中的 getOpenId请求的参数对象-----", param );
 
-        return new Promise((resolve, reject) => {
-            request({
-                url: url,
-                method: "POST",
-                json: true,
-                headers: {
-                    "content-type": "application/json",
-                },
-                // 将参数序列化
-                body: param
-            }, function(error, response, body) {
-                if (!error && response.statusCode == 200) {
-                    console.log("----node 中请求后台接口成功后返回的数据body----++++++++getOpenId------------->",body) // 请求成功的处理逻辑
-                    resolve(body)
-                }else {
-                    console.log("---------node 中请求后台接口失败后的数据body-------getOpenId------------->",body)
-                    resolve(body)
-                }
-            })
-        })
-    },
-
+      return new Promise((resolve, reject) => {
+          request({
+              url: url,
+              method: "POST",
+              json: true,
+              headers: {
+                  "content-type": "application/json",
+              },
+              // 将参数序列化
+              body: param
+          }, function(error, response, body) {
+              if (!error && response.statusCode == 200) {
+                  console.log("----node 中请求后台接口成功后返回的数据body----++++++++getOpenId------------->",body) // 请求成功的处理逻辑
+                  resolve(body)
+              }else {
+                  console.log("---------node 中请求后台接口失败后的数据body-------getOpenId------------->",body)
+                  resolve(body)
+              }
+          })
+      })
+  },
 
   /**
    * 上传资源到服务器

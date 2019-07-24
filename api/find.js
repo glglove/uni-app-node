@@ -1,6 +1,7 @@
 
 /**
- * find页面 中的api集合
+ * node 作为中间层 对java 后台进行访问
+ * find页面 中的api集合 
  */
 
 
@@ -70,6 +71,7 @@ module.exports = {
         console.log( "node中，find.js中的 getRankDayData请求的参数对象-----", param );
 
         return new  Promise((resolve, reject) => {
+            // node对 java 进行接口数据请求
             request({
                 url: url,
                 method: "POST",
@@ -267,8 +269,4 @@ module.exports = {
             });               
         })        
     },       
-
-
-
-
 }

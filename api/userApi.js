@@ -2,10 +2,14 @@
 const Users = require('../model/user')
 // const httpPost = require('../request/users')
 // 引入 bcrypt
+const apiConfig = require('./config')
+const baseUrl = apiConfig.baseUrl
+const request = require('request')
 
 const userApi= {
   // 用户注册
   register: function (params) {
+    console.log("【node中，userApi 里面打印的注册时传给node 服务器的params----", params)
     return new Promise((resolve, reject) => {
       return Users.findOne({name: params.name}).then((data) => {
         // console.log(data)
@@ -32,7 +36,7 @@ const userApi= {
           newUser.save().then(user => {
             if(user){
               resolve({
-                state: 1,
+                code: 1,
                 msg: '用户信息存储成功',
                 user
               })
@@ -50,6 +54,4 @@ const userApi= {
     })
   }
  }
-
-
 module.exports = userApi

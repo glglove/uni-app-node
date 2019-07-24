@@ -12,40 +12,233 @@ const UsersApi = require("../api/userApi");
 /* GET users listing. */
 
 /**
- *  
+ * 接口 getRankDayData 
  * */ 
-router.post('/getlistData', function(req, res, next) {
+router.post('/customerApp/myRank', function(req, res, next) {
     const resData = ''
-    console.log("------->",req.url)
-    console.log("------->",req.method)
-    if(req.url === '/getlistData' && req.method === 'POST'){
-        console.log(2344535)
+    console.log("--node中，routes —— find.js 中打印 req.url----->",req.url)
+    console.log("--node中，routes —— find.js 中打印 req.method----->",req.method)
+
+    console.log("【-node-service 中接口getRankDayData打印传入的req.headers--------->】", req.headers)
+  
+    console.log("【-node-service 中接口getRankDayData打印传入的req._parsedUrl--------->】", req._parsedUrl)
+  
+    console.log("【-node-service 中接口getRankDayData打印传入的req.url--------->】", req.url)
+  
+    console.log("【-node-service 中接口getRankDayData打印传入的req.params--------->】", req.params)
+    console.log("【-node-service 中接口getRankDayData打印传入的req.query--------->】", req.query)
+    console.log("【-node-service 中接口getRankDayData打印传入的req.route--------->】", req.route)    
+
+    if(req.url === '/customerApp/myRank' && req.method === 'POST'){
         // node js 作为中间件 调用 java后台的接口
         findApi.getRankDayData().then(data => {
             console.log("nodejs，调用java后台的getRankDayData接口后返回的数据--------》", data)
-            // 将从java 后台获取的数据返给前台页面
-            res.send(data)
+            if(data){
+                // 将从java 后台获取的数据返给前台页面
+                res.send(data)
+            }else {
+                res.send({
+                    code: 0,
+                    msg: "数据获取失败"
+                })
+            }
         })
-      
-        // res.send(data)
-        req.on("data", function (chunk) {
-            console.log("进入到on11111111111")
-            resData += data
-        })
-        req.on("end", function(){
-            //（1）.对url进行解码（url会对中文进行编码）
-            console.log("进入到end222222222")
-            resData = decodeURI(resData);
-            console.log(resData);
-
-            /**post请求参数不能使用url模块解析，因为他不是一个url，而是一个请求体对象 */
-
-            //（2）.使用querystring对url进行反序列化（解析url将&和=拆分成键值对），得到一个对象
-            //querystring是nodejs内置的一个专用于处理url的模块，API只有四个，详情见nodejs官方文档
-            var dataObject = querystring.parse(resData);
-            console.log(dataObject);       
-        })
+    }else {
+        console.log("【-node-service 中接口getRankDayData】请求中打印的错误信息")
     }
 });
+
+/**
+ * 接口 getContinuitySignUpData
+ * 
+ */
+router.post('/clockInApp/pageByDate', function(req, res, next) {
+    const resData = ''
+    console.log("--node中，routes —— find.js 中打印 req.url----->",req.url)
+    console.log("--node中，routes —— find.js 中打印 req.method----->",req.method)
+
+    console.log("【-node-service 中接口[getContinuitySignUpData]打印传入的req.headers--------->】", req.headers)
+  
+    console.log("【-node-service 中接口[getContinuitySignUpData]打印传入的req._parsedUrl--------->】", req._parsedUrl)
+  
+    console.log("【-node-service 中接口[getContinuitySignUpData]打印传入的req.url--------->】", req.url)
+  
+    console.log("【-node-service 中接口[getContinuitySignUpData]打印传入的req.params--------->】", req.params)
+    console.log("【-node-service 中接口[getContinuitySignUpData]打印传入的req.query--------->】", req.query)
+    console.log("【-node-service 中接口[getContinuitySignUpData]打印传入的req.route--------->】", req.route)    
+
+    if(req.url === '/clockInApp/pageByDate' && req.method === 'POST'){
+        // node js 作为中间件 调用 java后台的接口
+        findApi.getContinuitySignUpData().then(data => {
+            console.log("nodejs，调用java后台的[getContinuitySignUpData]接口后返回的数据--------》", data)
+            if(data){
+                // 将从java 后台获取的数据返给前台页面
+                res.send(data)
+            }else {
+                res.send({
+                    code: 0,
+                    msg: "数据获取失败"
+                })
+            }
+        })
+    }else {
+        console.log("【-node-service 中接口[getContinuitySignUpData]】请求中打印的错误信息")
+    }
+});
+
+/***
+ * 接口 getRankListData
+ * 
+ */
+router.post('/customerApp/rank', function(req, res, next) {
+    const resData = ''
+    console.log("--node中，routes —— find.js 中打印 req.url----->",req.url)
+    console.log("--node中，routes —— find.js 中打印 req.method----->",req.method)
+
+    console.log("【-node-service 中接口[getRankListData]打印传入的req.headers--------->】", req.headers)
+  
+    console.log("【-node-service 中接口[getRankListData]打印传入的req._parsedUrl--------->】", req._parsedUrl)
+  
+    console.log("【-node-service 中接口[getRankListData]打印传入的req.url--------->】", req.url)
+  
+    console.log("【-node-service 中接口[getRankListData]打印传入的req.params--------->】", req.params)
+    console.log("【-node-service 中接口[getRankListData]打印传入的req.query--------->】", req.query)
+    console.log("【-node-service 中接口[getRankListData]打印传入的req.route--------->】", req.route)    
+
+    if(req.url === '/customerApp/rank' && req.method === 'POST'){
+        // node js 作为中间件 调用 java后台的接口
+        findApi.getRankListData().then(data => {
+            console.log("nodejs，调用java后台的[getRankListData]接口后返回的数据--------》", data)
+            if(data){
+                // 将从java 后台获取的数据返给前台页面
+                res.send(data)
+            }else {
+                res.send({
+                    code: 0,
+                    msg: "数据获取失败"
+                })
+            }
+        })
+    }else {
+        console.log("【-node-service 中接口[getRankListData]】请求中打印的错误信息")
+    }
+});
+
+/*
+ * 接口 getlessonListDetailData
+ * 
+ */
+router.post('/classesApp/get', function(req, res, next) {
+    const resData = ''
+    console.log("--node中，routes —— find.js 中打印 req.url----->",req.url)
+    console.log("--node中，routes —— find.js 中打印 req.method----->",req.method)
+
+    console.log("【-node-service 中接口[getlessonListDetailData]打印传入的req.headers--------->】", req.headers)
+  
+    console.log("【-node-service 中接口[getlessonListDetailData]打印传入的req._parsedUrl--------->】", req._parsedUrl)
+  
+    console.log("【-node-service 中接口[getlessonListDetailData]打印传入的req.url--------->】", req.url)
+  
+    console.log("【-node-service 中接口[getlessonListDetailData]打印传入的req.params--------->】", req.params)
+    console.log("【-node-service 中接口[getlessonListDetailData]打印传入的req.query--------->】", req.query)
+    console.log("【-node-service 中接口[getlessonListDetailData]打印传入的req.route--------->】", req.route)    
+
+    if(req.url === '/classesApp/get' && req.method === 'POST'){
+        // node js 作为中间件 调用 java后台的接口
+        findApi.getlessonListDetailData().then(data => {
+            console.log("nodejs，调用java后台的[getlessonListDetailData]接口后返回的数据--------》", data)
+            if(data){
+                // 将从java 后台获取的数据返给前台页面
+                res.send(data)
+            }else {
+                res.send({
+                    code: 0,
+                    msg: "数据获取失败"
+                })
+            }
+        })
+    }else {
+        console.log("【-node-service 中接口[getlessonListDetailData]】请求中打印的错误信息")
+    }
+});
+
+
+/*
+ * 接口 SignUpLesson
+ * 
+ */
+router.post('/classesApp/join', function(req, res, next) {
+    const resData = ''
+    console.log("--node中，routes —— find.js 中打印 req.url----->",req.url)
+    console.log("--node中，routes —— find.js 中打印 req.method----->",req.method)
+
+    console.log("【-node-service 中接口[SignUpLesson]打印传入的req.headers--------->】", req.headers)
+  
+    console.log("【-node-service 中接口[SignUpLesson]打印传入的req._parsedUrl--------->】", req._parsedUrl)
+  
+    console.log("【-node-service 中接口[SignUpLesson]打印传入的req.url--------->】", req.url)
+  
+    console.log("【-node-service 中接口[SignUpLesson]打印传入的req.params--------->】", req.params)
+    console.log("【-node-service 中接口[SignUpLesson]打印传入的req.query--------->】", req.query)
+    console.log("【-node-service 中接口[SignUpLesson]打印传入的req.route--------->】", req.route)    
+
+    if(req.url === '/classesApp/join' && req.method === 'POST'){
+        // node js 作为中间件 调用 java后台的接口
+        findApi.SignUpLesson().then(data => {
+            console.log("nodejs，调用java后台的[SignUpLesson]接口后返回的数据--------》", data)
+            if(data){
+                // 将从java 后台获取的数据返给前台页面
+                res.send(data)
+            }else {
+                res.send({
+                    code: 0,
+                    msg: "数据获取失败"
+                })
+            }
+        })
+    }else {
+        console.log("【-node-service 中接口[SignUpLesson]】请求中打印的错误信息")
+    }
+});
+
+
+/*
+ * 接口 addCollect
+ * 
+ */
+router.post('/customerApp/addCollect', function(req, res, next) {
+    const resData = ''
+    console.log("--node中，routes —— find.js 中打印 req.url----->",req.url)
+    console.log("--node中，routes —— find.js 中打印 req.method----->",req.method)
+
+    console.log("【-node-service 中接口[addCollect]打印传入的req.headers--------->】", req.headers)
+  
+    console.log("【-node-service 中接口[addCollect]打印传入的req._parsedUrl--------->】", req._parsedUrl)
+  
+    console.log("【-node-service 中接口[addCollect]打印传入的req.url--------->】", req.url)
+  
+    console.log("【-node-service 中接口[addCollect]打印传入的req.params--------->】", req.params)
+    console.log("【-node-service 中接口[addCollect]打印传入的req.query--------->】", req.query)
+    console.log("【-node-service 中接口[addCollect]打印传入的req.route--------->】", req.route)    
+
+    if(req.url === '/customerApp/addCollect' && req.method === 'POST'){
+        // node js 作为中间件 调用 java后台的接口
+        findApi.addCollect().then(data => {
+            console.log("nodejs，调用java后台的[addCollect]接口后返回的数据--------》", data)
+            if(data){
+                // 将从java 后台获取的数据返给前台页面
+                res.send(data)
+            }else {
+                res.send({
+                    code: 0,
+                    msg: "数据获取失败"
+                })
+            }
+        })
+    }else {
+        console.log("【-node-service 中接口[addCollect]】请求中打印的错误信息")
+    }
+});
+
 
 module.exports = router;
