@@ -49,6 +49,10 @@ const userApi= {
           })
         }
       }).catch(err => {
+        reject({
+          code: 0,
+          msg: '数据库查询userName出错'
+        })
         console.log(err)
       })
     })

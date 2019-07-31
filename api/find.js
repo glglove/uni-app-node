@@ -17,18 +17,18 @@ module.exports = {
      * @param {*} loading 
      */
     getContinuitySignUpData: function( param ,loading = false ){
-        console.log(`node中，find.js中的 getContinuitySignUpData的数据-------${apiConfig.baseURL}----------`)
+        console.log(`node中，【api】find.js中的 getContinuitySignUpData的数据-------${param}----------`)
         const url = `${baseUrl}/clockInApp/pageByDate`;
         
         var data = {
-            token: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxIiwicm9sZXMiOiJjdXN0b21lciIsImlhdCI6MTU0OTk2NTY3NH0.8R4zpdfGo_vao8yReVJG3j1U1jkWA5Re11j0QVUwhV0",
+            // token: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiIxIiwicm9sZXMiOiJjdXN0b21lciIsImlhdCI6MTU0OTk2NTY3NH0.8R4zpdfGo_vao8yReVJG3j1U1jkWA5Re11j0QVUwhV0",
         }
    
         param = param || {}
 
         param = Object.assign(data, param);
 
-        console.log( "node中，find.js中的 getContinuitySignUpData请求的参数对象-----", param );
+        console.log( "node中，【api】find.js中的 getContinuitySignUpData请求的参数对象-----", param );
 
         return new Promise((resolve, reject) => {
             request({
@@ -42,10 +42,10 @@ module.exports = {
                 body: param
             }, function(error, response, body) {
                 if (!error && response.statusCode == 200) {
-                    console.log("----node 中请求后台接口成功后返回的数据body----++++++++getContinuitySignUpData------------->",body) // 请求成功的处理逻辑
+                    console.log("----node 【api】find.js中请求后台接口成功后返回的数据body----++++++++getContinuitySignUpData------------->",body) // 请求成功的处理逻辑
                     resolve(body)
                 }else {
-                    console.log("---------node 中请求后台接口失败后的数据body-------getContinuitySignUpData------------->",body)
+                    console.log("---------node 【api】find.js中请求后台接口成功后返回的数据body-------getContinuitySignUpData------------->",body)
                     resolve(body)
                 }
             }); 
@@ -59,16 +59,15 @@ module.exports = {
      * @param {*} loading 
      */
     getRankDayData: ( param ) => {
-        console.log(`node中，find.js中的 getRankDayData的数据-------${apiConfig.baseURL}----------`)
         const url = `${baseUrl}/customerApp/myRank`;
+        let data = {
 
-        var data = {
-            token: "eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1NSIsInJvbGVzIjoiY3VzdG9tZXIiLCJpYXQiOjE1NTUzMDQyMzl9.Pznwe4fyBDXb0JIQOKZbMvca3P6a7REvHyYDbdnieSM",
         }
         
-        param = Object.assign(data, param);
+        param = Object.assign(data, param)
 
-        console.log( "node中，find.js中的 getRankDayData请求的参数对象-----", param );
+        console.log( "node中，api——find.js中的 getRankDayData请求的参数对象-----", param );
+
 
         return new  Promise((resolve, reject) => {
             // node对 java 进行接口数据请求
@@ -83,10 +82,10 @@ module.exports = {
             }, function(error, response, body) {
                 if (!error && response.statusCode == 200) {
                     debugger
-                    console.log("--------++++++++getRankDayData------------->",body) // 请求成功的处理逻辑
+                    console.log("----node中，api——find.js----++++++++getRankDayData------------->",body) // 请求成功的处理逻辑
                     resolve(body) 
                 }else {
-                    console.log("-----------------getRankDayData------------>",body)
+                    console.log("------node中，api——find.js-----------getRankDayData------------>",body)
                 }
             });             
         })
@@ -105,7 +104,7 @@ module.exports = {
         param = Object.assign(data, param);
 
 
-        console.log( "node中，find.js中的 getRankListData请求的参数对象-----", param );
+        console.log( "node中，api——find.js中的 getRankListData请求的参数对象-----", param );
 
         return new  Promise((resolve, reject) => {
             request({
@@ -119,10 +118,10 @@ module.exports = {
             }, function(error, response, body) {
                 if (!error && response.statusCode == 200) {
                     debugger
-                    console.log("--------++++++++-getRankListData------------>",body) // 请求成功的处理逻辑
+                    console.log("---api——find.js-----++++++++-getRankListData------------>",body) // 请求成功的处理逻辑
                     resolve(body) 
                 }else {
-                    console.log("-----------------getRankListData------------>",body)
+                    console.log("----api-find.js-------------getRankListData------------>",body)
                 }
             });             
         })
@@ -142,7 +141,7 @@ module.exports = {
         param = Object.assign(data, param);
 
 
-        console.log( "node中，find.js中的 getLessonListData请求的参数对象-----", param );
+        console.log( "node中，api——find.js中的 getLessonListData请求的参数对象-----", param );
 
         return new  Promise((resove, reject) => {
             request({
@@ -156,10 +155,10 @@ module.exports = {
             }, function(error, response, body) {
                 if (!error && response.statusCode == 200) {
                     debugger
-                    console.log("--------++++++++-getLessonListData------------>",body) // 请求成功的处理逻辑
+                    console.log("--node中，api——find.js中调用java后台---返回的结果---++++++++-getLessonListData ------------>",body) // 请求成功的处理逻辑
                     resolve(body) 
                 }else {
-                    console.log("-----------------getLessonListData------------>",body)
+                    console.log("------node中，api——find.js中调用java后台---返回的结果-------------getLessonListData------------>",body)
                 }
             });               
         })
@@ -177,7 +176,7 @@ module.exports = {
         }
         param = Object.assign(data, param);
 
-        console.log( "node中，find.js中的 getlessonListDetailData请求的参数对象-----", param );
+        console.log( "node中，【api】find.js中的 getlessonListDetailData请求的参数对象-----", param );
 
         return new  Promise((resove, reject) => {
             request({
@@ -191,10 +190,10 @@ module.exports = {
             }, function(error, response, body) {
                 if (!error && response.statusCode == 200) {
                     debugger
-                    console.log("--------++++++++-getlessonListDetailData------------>",body) // 请求成功的处理逻辑
+                    console.log("-----node中，api——find.js中调用java后台---返回的结果-----++++++++-getlessonListDetailData------------>",body) // 请求成功的处理逻辑
                     resolve(body) 
                 }else {
-                    console.log("-----------------getlessonListDetailData------------>",body)
+                    console.log("-------node中，api——find.js中调用java后台---返回的结果------------getlessonListDetailData------------>",body)
                 }
             });               
         })        
@@ -212,7 +211,7 @@ module.exports = {
         }
         param = Object.assign(data, param);
 
-        console.log( "node中，find.js中的 SignUpLesson请求的参数对象-----", param );
+        console.log( "node中，【api】find.js中的 SignUpLesson请求的参数对象-----", param );
 
         return new  Promise((resove, reject) => {
             request({
@@ -226,10 +225,10 @@ module.exports = {
             }, function(error, response, body) {
                 if (!error && response.statusCode == 200) {
                     debugger
-                    console.log("--------++++++++-SignUpLesson------------>",body) // 请求成功的处理逻辑
+                    console.log("----node中，api——find.js中调用java后台---返回的结果------++++++++-SignUpLesson------------>",body) // 请求成功的处理逻辑
                     resolve(body) 
                 }else {
-                    console.log("-----------------SignUpLesson------------>",body)
+                    console.log("---------node中，api——find.js中调用java后台---返回的结果------------SignUpLesson------------>",body)
                 }
             });               
         })        
@@ -247,7 +246,7 @@ module.exports = {
         }
         param = Object.assign(data, param);
 
-        console.log( "node中，find.js中的 addCollect请求的参数对象-----", param );
+        console.log( "node中，【api】find.js中的 addCollect请求的参数对象-----", param );
 
         return new  Promise((resove, reject) => {
             request({
@@ -261,10 +260,10 @@ module.exports = {
             }, function(error, response, body) {
                 if (!error && response.statusCode == 200) {
                     debugger
-                    console.log("--------++++++++-addCollect------------>",body) // 请求成功的处理逻辑
+                    console.log("-------node中，api——find.js中调用java后台---返回的结果-----++++++++-addCollect------------>",body) // 请求成功的处理逻辑
                     resolve(body) 
                 }else {
-                    console.log("-----------------addCollect------------>",body)
+                    console.log("-------node中，api——find.js中调用java后台---返回的结果--------------addCollect------------>",body)
                 }
             });               
         })        

@@ -19,6 +19,9 @@ var request = require('request')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var findRouter = require('./routes/find');
+var myRouter = require('./routes/mine');
+var appRouter = require('./routes/app')
+
 var cors = require("cors")
 var app = express();
 app.use(cors())
@@ -48,9 +51,9 @@ app.set('view engine', 'html')
 app.use(logger('dev'));
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: false }));
-app.use(bodyParser.urlencoded({extended:false}));//解析 x-www-form-urlencoded
-app.use(bodyParser.json())
-bodyParser.urlencoded({extended: true})
+app.use(bodyParser.urlencoded({extended:false}));//解析 x-www-form-urlencoded（form表单提交的数据 到时可以通过 req.body 来解析）
+app.use(bodyParser.json())  // 解析 非表单提交的json数据 （node服务端通过 req.body 得到 参数信息）
+// bodyParser.urlencoded({extended: true})
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/users/register', express.static(path.join(__dirname, 'pages')))
@@ -58,6 +61,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/find', findRouter);
+app.use('/my', myRouter);
+app.use('/app', appRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
