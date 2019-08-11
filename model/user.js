@@ -6,6 +6,9 @@ const users = new mongoose.Schema({
     pwd: {
         type: String,
 
+    },
+    token: {
+        type: String,
     }
 })
 

@@ -15,7 +15,7 @@ router.get('/register', function(req, res, next) {
   //   name: "f4j",
   //   pwd: 123456
   // }
-  const params = req.body
+  const params = req.query
 
   console.log("【-node-service 中register接口打印传入的req.body--------->】", req.body)
 

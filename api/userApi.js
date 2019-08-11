@@ -4,6 +4,7 @@ const Users = require('../model/user')
 // 引入 bcrypt
 const apiConfig = require('./config')
 const baseUrl = apiConfig.baseUrl
+const token = apiConfig.miniproConfings.token
 const request = require('request')
 
 const userApi= {
@@ -14,14 +15,21 @@ const userApi= {
       return Users.findOne({name: params.name}).then((data) => {
         // console.log(data)
         if (data) {
+          let userObj = {
+            name: params.name,
+            pwd: params.pwd,
+            token: token            
+          }
           resolve({
             code: 1,
             msg: "用户名已存在",
+            user: userObj
           })
         } else {
-          const myUser = {
+          let myUser = {
             name: params.name,
-            pwd: params.pwd
+            pwd: params.pwd,
+            token: token
           }
 
           // 密码进行加密后返回
@@ -30,7 +38,7 @@ const userApi= {
           // const hash = bcrypt.hashSync(myUser.pwd, salt);
           // myUser.pwd = hash;
           // 实例化 myUser
-          const newUser = new Users(myUser)
+          let newUser = new Users(myUser)
           console.log(newUser)
           // 存储到mongodb中
           newUser.save().then(user => {

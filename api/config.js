@@ -1,7 +1,8 @@
 
  const miniproConfings = {
     miniproAppid: 'wx224bd53fdc4dd933', // 小程序appid
-    miniproSecret: 'e93ec56f5785d73760577dbf4b05ab7f' // 小程序secret
+    miniproSecret: 'e93ec56f5785d73760577dbf4b05ab7f', // 小程序secret
+    token: 'eyJhbGciOiJIUzI1NiJ9.eyJqdGkiOiI1NSIsInJvbGVzIjoiY3VzdG9tZXIiLCJpYXQiOjE1NTUzMDQyMzl9.Pznwe4fyBDXb0JIQOKZbMvca3P6a7REvHyYDbdnieSM', // token
   }
 
  const urls = {
