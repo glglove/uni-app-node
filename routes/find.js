@@ -73,7 +73,7 @@ router.post('/clockInApp/pageByDate', function(req, res, next) {
 
     if(req.url === '/clockInApp/pageByDate' && req.method === 'POST'){
         // node js 作为中间件 调用 java后台的接口
-        findApi.getContinuitySignUpData().then(data => {
+        findApi.getContinuitySignUpData(params).then(data => {
             console.log("nodejs，调用java后台的[getContinuitySignUpData]接口后返回的数据--------》", data)
             if(data){
                 // 将从java 后台获取的数据返给前台页面
@@ -109,7 +109,7 @@ router.post('/customerApp/rank', function(req, res, next) {
 
     if(req.url === '/customerApp/rank' && req.method === 'POST'){
         // node js 作为中间件 调用 java后台的接口
-        findApi.getRankListData().then(data => {
+        findApi.getRankListData(params).then(data => {
             console.log("nodejs，调用java后台的[getRankListData]接口后返回的数据--------》", data)
             if(data){
                 // 将从java 后台获取的数据返给前台页面
@@ -147,7 +147,7 @@ router.post('/classesApp/get', function(req, res, next) {
 
     if(req.url === '/classesApp/get' && req.method === 'POST'){
         // node js 作为中间件 调用 java后台的接口
-        findApi.getlessonListDetailData().then(data => {
+        findApi.getlessonListDetailData(params).then(data => {
             console.log("nodejs，调用java后台的[getlessonListDetailData]接口后返回的数据--------》", data)
             if(data){
                 // 将从java 后台获取的数据返给前台页面
@@ -186,7 +186,7 @@ router.post('/classesApp/join', function(req, res, next) {
 
     if(req.url === '/classesApp/join' && req.method === 'POST'){
         // node js 作为中间件 调用 java后台的接口
-        findApi.SignUpLesson().then(data => {
+        findApi.SignUpLesson(params).then(data => {
             console.log("nodejs，调用java后台的[SignUpLesson]接口后返回的数据--------》", data)
             if(data){
                 // 将从java 后台获取的数据返给前台页面
@@ -242,5 +242,43 @@ router.post('/customerApp/addCollect', function(req, res, next) {
     }
 });
 
+
+/*
+ * 接口 addCollect
+ * 
+ */
+router.post('/customerApp/addCollect', function(req, res, next) {
+    const resData = ''
+    console.log("--node中，routes —— find.js 中打印 req.url----->",req.url)
+    console.log("--node中，routes —— find.js 中打印 req.method----->",req.method)
+
+    console.log("【-node-service 中接口[addCollect]打印传入的req.headers--------->】", req.headers)
+  
+    console.log("【-node-service 中接口[addCollect]打印传入的req._parsedUrl--------->】", req._parsedUrl)
+  
+    console.log("【-node-service 中接口[addCollect]打印传入的req.url--------->】", req.url)
+  
+    console.log("【-node-service 中接口[addCollect]打印传入的req.params--------->】", req.params)
+    console.log("【-node-service 中接口[addCollect]打印传入的req.query--------->】", req.query)
+    console.log("【-node-service 中接口[addCollect]打印传入的req.route--------->】", req.route)    
+
+    if(req.url === '/customerApp/addCollect' && req.method === 'POST'){
+        // node js 作为中间件 调用 java后台的接口
+        findApi.addCollect(params).then(data => {
+            console.log("nodejs，调用java后台的[addCollect]接口后返回的数据--------》", data)
+            if(data){
+                // 将从java 后台获取的数据返给前台页面
+                res.send(data)
+            }else {
+                res.send({
+                    code: 0,
+                    msg: "数据获取失败"
+                })
+            }
+        })
+    }else {
+        console.log("【-node-service 中接口[addCollect]】请求中打印的错误信息")
+    }
+});
 
 module.exports = router;

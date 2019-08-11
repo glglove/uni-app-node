@@ -1,3 +1,14 @@
+
+/**
+ * node 作为中间层 对java 后台进行访问
+ * find页面 中的api集合 
+ */
+
+
+const apiConfig = require('./config')
+const baseUrl = apiConfig.baseUrl
+const request = require('request')
+
 /**
  * my 页面中的接口集合
  */

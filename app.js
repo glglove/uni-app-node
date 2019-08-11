@@ -19,6 +19,7 @@ var request = require('request')
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var findRouter = require('./routes/find');
+var signRouter = require('./routes/sign');
 var myRouter = require('./routes/mine');
 var appRouter = require('./routes/app')
 
@@ -61,6 +62,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/find', findRouter);
+app.use('/sign', signRouter);
 app.use('/my', myRouter);
 app.use('/app', appRouter);
 

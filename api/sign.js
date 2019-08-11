@@ -1,3 +1,15 @@
+
+
+/**
+ * node 作为中间层 对java 后台进行访问
+ * find页面 中的api集合 
+ */
+
+
+const apiConfig = require('./config')
+const baseUrl = apiConfig.baseUrl
+const request = require('request')
+
 /**
  * sign 页面中的 接口集合
  */
@@ -6,7 +18,6 @@
 
 
  module.exports =  {
- 
    /**
     * 
     * @param {*} param 查询 所有课程列表信息
@@ -29,7 +40,6 @@
                 headers: {
                     "content-type": "application/json",
                 },
-                // 将参数序列化
                 body: param
             }, function(error, response, body) {
                 if (!error && response.statusCode == 200) {
@@ -49,7 +59,7 @@
     * @param {*} loading 
     */
     getTodayTestData ( param ,loading = false ) {
-        const url = `${baseUrl}//questionsApp/get`;
+        const url = `${baseUrl}/questionsApp/get`;
     
         var data = {
     
@@ -164,7 +174,7 @@
     * @param {*} loading 
     */
     getLearnData ( param ,loading = false ) {
-        const url = `${baseUrl}/customerApp/rank`;
+        const url = `${baseUrl}/clockInApp/pageByClass`;
         var data = {
     
         }
@@ -234,43 +244,6 @@
    
    /**
     * 
-    * @param {*} param 查询单个课程相信信息  ，点击 单个报名课程 获取单个课程详情信息
-    * @param {*} loading 
-    */
-    getContinuitySignUpData ( param ,loading = false ) {
-        const url = `${baseUrl}/classesApp/get`;
-        var data = {
-    
-        }
-        param = Object.assign(data, param);
-
-        console.log( "node中，sign.js中的 getContinuitySignUpData请求的参数对象-----", param );
-
-        return new Promise((resolve, reject) => {
-            request({
-                url: url,
-                method: "POST",
-                json: true,
-                headers: {
-                    "content-type": "application/json",
-                },
-                // 将参数序列化
-                body: param
-            }, function(error, response, body) {
-                if (!error && response.statusCode == 200) {
-                    console.log("----node 中请求后台接口成功后返回的数据body----++++++++getContinuitySignUpData------------->",body) // 请求成功的处理逻辑
-                    resolve(body)
-                }else {
-                    console.log("---------node 中请求后台接口失败后的数据body-------getContinuitySignUpData------------->",body)
-                    resolve(body)
-                }
-            })
-        })      
-    }, 
-   
-   
-   /**
-    * 
     * @param {*} param 提交作业 按钮  提交 打卡内容和图片
     * @param {*}  
     */
@@ -305,40 +278,77 @@
         })          
     },
  
-   /**
+    /**
     * 
-    * @param {*} param 获取 单个课程的 所有人的打卡记录
+    * @param {*} param 提交作业 按钮  提交 打卡内容和图片
     * @param {*}  
     */
-    getAllSignData ( param ,loading = false ) {
-        const url = `${baseUrl}/clockInApp/allPage`;
-        var data = {
+   getAllSignData( param ,loading = false ) {
+    const url = `${baseUrl}/clockInApp/allPage`;
+    var data = {
+
+    }
+    param = Object.assign(data, param);
+
+    console.log( "node中，sign.js中的 getAllSignData请求的参数对象-----", param );
+
+    return new Promise((resolve, reject) => {
+        request({
+            url: url,
+            method: "POST",
+            json: true,
+            headers: {
+                "content-type": "application/json",
+            },
+            // 将参数序列化
+            body: param
+        }, function(error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log("----node 中请求后台接口成功后返回的数据body----++++++++getAllSignData------------->",body) // 请求成功的处理逻辑
+                resolve(body)
+            }else {
+                console.log("---------node 中请求后台接口失败后的数据body-------getAllSignData------------->",body)
+                resolve(body)
+            }
+        })
+    })          
+   },
+
+    /**
+    * 
+    * @param {*} param 提交作业 按钮  提交 打卡内容和图片
+    * @param {*}  
+    */
+   addComment( param ,loading = false ) {
+    const url = `${baseUrl}/customerApp/addComment`;
+    var data = {
+
+    }
+    param = Object.assign(data, param);
+
+    console.log( "node中，sign.js中的 addComment请求的参数对象-----", param );
+
+    return new Promise((resolve, reject) => {
+        request({
+            url: url,
+            method: "POST",
+            json: true,
+            headers: {
+                "content-type": "application/json",
+            },
+            // 将参数序列化
+            body: param
+        }, function(error, response, body) {
+            if (!error && response.statusCode == 200) {
+                console.log("----node 中请求后台接口成功后返回的数据body----++++++++addComment------------->",body) // 请求成功的处理逻辑
+                resolve(body)
+            }else {
+                console.log("---------node 中请求后台接口失败后的数据body-------addComment------------->",body)
+                resolve(body)
+            }
+        })
+    })          
+   },   
     
-        }
-        param = Object.assign(data, param);
-
-        console.log( "node中，sign.js中的 getAllSignData请求的参数对象-----", param );
-
-        return new Promise((resolve, reject) => {
-            request({
-                url: url,
-                method: "POST",
-                json: true,
-                headers: {
-                    "content-type": "application/json",
-                },
-                // 将参数序列化
-                body: param
-            }, function(error, response, body) {
-                if (!error && response.statusCode == 200) {
-                    console.log("----node 中请求后台接口成功后返回的数据body----++++++++getAllSignData------------->",body) // 请求成功的处理逻辑
-                    resolve(body)
-                }else {
-                    console.log("---------node 中请求后台接口失败后的数据body-------getAllSignData------------->",body)
-                    resolve(body)
-                }
-            })
-        })   
-    }      
  }
  
