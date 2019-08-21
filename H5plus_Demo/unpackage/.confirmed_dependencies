@@ -1,0 +1,11 @@
+{
+	"index.html": {
+		"refer": [
+			"screen.html",
+			"device.html",
+			"network.html",
+			"contact.html",
+			"phone.html"
+		]
+	}
+}

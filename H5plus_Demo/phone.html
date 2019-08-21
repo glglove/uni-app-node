@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">打电话、发短信、发邮件</h1>
+		</header>
+		
+		<div class="mui-content">
+		    <button type="button" class="mui-btn mui-btn-blue mui-btn-block" onclick="call()">打电话</button>
+		    <button type="button" class="mui-btn mui-btn-blue mui-btn-block" onclick="sendMessage()">发短信</button>
+		    <button type="button" class="mui-btn mui-btn-blue mui-btn-block" onclick="sendMail()">发邮件</button>
+		    
+		    <textarea name="" rows="" cols=""></textarea>
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			
+			/*
+			 打电话 调用系统程序拨打电话。
+			void plus.device.dial( number, confirm );
+			
+		    number: ( String ) 必选 要拨打的电话号码
+		    confirm: ( Boolean ) 可选 是否需要用户确认后开始拨打电话
+		  	 设置为true表示打开系统拨打电话界面，需用户点击拨号按钮后才开始拨打电话，false则无需确认直接拨打电话，默认值为true。
+
+			 * */
+			
+			
+			/*
+			 发邮件
+			 Messaging模块管理设备通讯功能，可用于短信、彩信、邮件发送等。
+			 通过plus.messaging可获取设备通讯管理对象。
+			 另外也可以直接通过html中的href直接快速发送短信、拨打电话、发送邮件等。
+			 
+			常量：
+		    TYPE_SMS: 简单短信类型常量
+		    TYPE_MMS: 彩信类型常量
+		    TYPE_EMAIL: 邮件类型常量
+			
+			方法：
+		    createMessage: 创建消息对象
+		    sendMessage: 发送消息
+
+			对象：
+		    Message: 消息对象
+		    BodyType: 消息体内容类型
+			
+			消息对象
+			属性：
+		    to: 收件人信息
+		    cc: 抄送人信息
+		    bcc: 暗送人信息
+		    from: 发件人信息
+		    subject: 发送消息主题
+		    body: 发送消息内容
+		    bodyType: 发送消息内容类型
+		    silent: 是否采用静默方式发送消息
+
+			
+			回调方法：
+		    MessageSendSuccessCallback: 消息发送成功的回调函数
+		    MessageErrorCallback: 消息发送失败的回调函数
+						
+			 * */
+			//打电话
+			function call(){
+				plus.device.dial("13995976182",true);
+			}
+			//发短信
+			function sendMessage(){
+				//创建消息对象
+				var msg=plus.messaging.createMessage(plus.messaging.TYPE_SMS);
+				msg.to=['13995976182'];
+				msg.subject="ForFuture Grup";
+				msg.body="您好，欢迎使用ForFuture Group的短信服务，感谢您的使用！";
+				
+				plus.messaging.sendMessage(msg,function () {
+						mui.alert( "Send success!" );
+					}, function () {
+						mui.alert( "Send failed!" );
+					} 
+				);
+			}
+			//发email
+			function sendMail(){
+				var msg=plus.messaging.createMessage(plus.messaging.TYPE_EMAIL);
+				msg.to=['ganquanzhong@qq.com'];
+				msg.subject="ForFuture Grup";
+				msg.body="您好，欢迎使用ForFuture Group的短信服务，感谢您的使用！";
+				plus.messaging.sendMessage(msg,function () {
+						mui.alert( "Mail Send success!" );
+					}, function () {
+						mui.alert( "Mail Send failed!" );
+					} 
+				);
+			}
+			
+		</script>
+	</body>
+
+</html>
