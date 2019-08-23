@@ -4,8 +4,8 @@ const mysql = require("mysql");
 // 创建 mysql 连接池并配置参数
 const mysqlConnection = mysql.createConnection({
     // host: "localhost",    // 主机地址 
-    // host: "0.0.0.0",    // 主机地址
-    host: "127.0.0.1",    // 主机地址
+    host: "0.0.0.0",    // 主机地址
+    // host: "127.0.0.1",    // 主机地址
     port: 3306,                 // 端口
     user: "root",               // 数据库访问账号
     password: "root",         // 数据库访问密码

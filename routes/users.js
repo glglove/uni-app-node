@@ -15,6 +15,8 @@ router.get('/register', function(req, res, next) {
   //   name: "f4j",
   //   pwd: 123456
   // }
+
+  // get 的方式时 使用 req.query 来获取前端传过来的参数   post 方式时 使用 req.params来获取
   const params = req.query
 
   console.log("【-node-service 中register接口打印传入的req.body--------->】", req.body)
