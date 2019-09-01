@@ -11,7 +11,6 @@ module.exports = {
     getOpenId(param, loading = false) {
         const url = `${baseUrl}/customerApp/login`;
         console.log(`node中，comm.js中的 getOpenId的数据-------${apiConfig.baseURL}----------`)
-        const url = `${baseUrl}/clockInApp/pageByDate`;
         
         var data = {
           

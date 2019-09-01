@@ -21,7 +21,7 @@ module.exports =  {
    * @param {*} loading 
    */
     getAchivementList ( param ,loading = false ) {
-        const url = `${baseUrl}/classesApp/certificatePage`;
+        const url = `${baseUrl}/certificateLogApp/page`;
         var data = {
 
         }
