@@ -87,9 +87,13 @@ router.post('/customerApp/loginAndRegister', function(req, res, next) {
  *  全局中存放 推送码 formids 并提交给 后台保存
  * */ 
 router.post('/wxApp/addFormId', function(req, res, next) {
+<<<<<<< HEAD
     // 前端传过来的 参数
     let params = req.body
 
+=======
+    let params = req.body
+>>>>>>> 207dc7cb85754c3659e6c10d92ba2c7764b2ca87
     console.log("【--node中，routes —— app.js 中打印 req.body----->】",req.body)
 
     console.log("【--node中，routes —— app.js 中打印 req.url----->】",req.url)
@@ -97,10 +101,15 @@ router.post('/wxApp/addFormId', function(req, res, next) {
 
     console.log("【-node-service 中接口saveFormIds打印传入的req.headers--------->】", req.headers)
   
+<<<<<<< HEAD
   
     console.log("【-node-service 中接口saveFormIds打印传入的req.url--------->】", req.url)
   
     console.log("【-node-service 中接口saveFormIds打印传入的req.params--------->】", req.params)
+=======
+    console.log("【-node-service 中接口saveFormIds打印传入的req.params--------->】", req.params)
+
+>>>>>>> 207dc7cb85754c3659e6c10d92ba2c7764b2ca87
     console.log("【-node-service 中接口saveFormIds打印传入的req.route--------->】", req.route)    
 
     if(req.url === '/wxApp/addFormId' && req.method === 'POST'){
@@ -126,22 +135,22 @@ router.post('/wxApp/addFormId', function(req, res, next) {
  *  上传资源到服务器
  * */ 
 router.post('/fileMappedApp/upload', function(req, res, next) {
+<<<<<<< HEAD
     // 前端传过来的 参数
     let params = req.body
 
+=======
+    let params = req.body
+>>>>>>> 207dc7cb85754c3659e6c10d92ba2c7764b2ca87
     console.log("【--node中，routes —— app.js 中打印 req.body----->】",req.body)
 
     console.log("【--node中，routes —— app.js 中打印 req.url----->】",req.url)
     console.log("【--node中，routes —— app.js 中打印 req.method----->】",req.method)
 
     console.log("【-node-service 中接口upLoad打印传入的req.headers--------->】", req.headers)
-  
-    console.log("【-node-service 中接口upLoad打印传入的req._parsedUrl--------->】", req._parsedUrl)
-  
-    console.log("【-node-service 中接口upLoad打印传入的req.url--------->】", req.url)
+
   
     console.log("【-node-service 中接口upLoad打印传入的req.params--------->】", req.params)
-    console.log("【-node-service 中接口upLoad打印传入的req.query--------->】", JSON.parse(req.query))
     console.log("【-node-service 中接口upLoad打印传入的req.route--------->】", req.route)    
 
     if(req.url === '/fileMappedApp/upload' && req.method === 'POST'){
@@ -167,8 +176,12 @@ router.post('/fileMappedApp/upload', function(req, res, next) {
  *  分享
  * */ 
 router.post('/customerApp/shareImg', function(req, res, next) {
+<<<<<<< HEAD
     // 前端传过来的 参数
     const params = req.body
+=======
+    let params = req.body
+>>>>>>> 207dc7cb85754c3659e6c10d92ba2c7764b2ca87
 
     console.log("【--node中，routes —— app.js 中打印 req.body----->】",req.body)
 
@@ -177,12 +190,8 @@ router.post('/customerApp/shareImg', function(req, res, next) {
 
     console.log("【-node-service 中接口saveFormIds打印传入的req.headers--------->】", req.headers)
   
-    console.log("【-node-service 中接口saveFormIds打印传入的req._parsedUrl--------->】", req._parsedUrl)
-  
-    console.log("【-node-service 中接口saveFormIds打印传入的req.url--------->】", req.url)
-  
     console.log("【-node-service 中接口saveFormIds打印传入的req.params--------->】", req.params)
-    console.log("【-node-service 中接口saveFormIds打印传入的req.query--------->】", JSON.parse(req.query))
+
     console.log("【-node-service 中接口saveFormIds打印传入的req.route--------->】", req.route)    
 
     if(req.url === '/customerApp/shareImg' && req.method === 'POST'){
