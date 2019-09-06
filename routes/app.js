@@ -124,13 +124,9 @@ router.post('/wxApp/addFormId', function(req, res, next) {
  *  上传资源到服务器
  * */ 
 router.post('/fileMappedApp/upload', function(req, res, next) {
-<<<<<<< HEAD
     // 前端传过来的 参数
     let params = req.body
 
-=======
-    let params = req.body
->>>>>>> 207dc7cb85754c3659e6c10d92ba2c7764b2ca87
     console.log("【--node中，routes —— app.js 中打印 req.body----->】",req.body)
 
     console.log("【--node中，routes —— app.js 中打印 req.url----->】",req.url)
@@ -165,12 +161,7 @@ router.post('/fileMappedApp/upload', function(req, res, next) {
  *  分享
  * */ 
 router.post('/customerApp/shareImg', function(req, res, next) {
-<<<<<<< HEAD
-    // 前端传过来的 参数
-    const params = req.body
-=======
     let params = req.body
->>>>>>> 207dc7cb85754c3659e6c10d92ba2c7764b2ca87
 
     console.log("【--node中，routes —— app.js 中打印 req.body----->】",req.body)
 
