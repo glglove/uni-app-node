@@ -97,6 +97,7 @@ module.exports = {
      * @param {*} loading 
      */
     getRankListData: ( param ) => {
+        
         const url = `${baseUrl}/customerApp/rank`;
         var data = {
 

@@ -58,6 +58,8 @@ router.post('/customerApp/myRank', function(req, res, next) {
  */
 router.post('/clockInApp/pageByDate', function(req, res, next) {
     const resData = ''
+    // 前端传过来的 参数
+    const params = req.body
 
     console.log("--node中，routes —— find.js 中打印 req.method----->",req.method)
 
@@ -95,6 +97,8 @@ router.post('/clockInApp/pageByDate', function(req, res, next) {
  * 
  */
 router.post('/customerApp/rank', function(req, res, next) {
+    // 前端传过来的 参数
+    const params = req.body    
     const resData = ''
     console.log("--node中，routes —— find.js 中打印 req.url----->",req.url)
     console.log("--node中，routes —— find.js 中打印 req.method----->",req.method)
@@ -131,6 +135,8 @@ router.post('/customerApp/rank', function(req, res, next) {
  * 
  */
 router.post('/classesApp/get', function(req, res, next) {
+    // 前端传过来的 参数
+    const params = req.body    
     const resData = ''
     console.log("--node中，routes —— find.js 中打印 req.url----->",req.url)
     console.log("--node中，routes —— find.js 中打印 req.method----->",req.method)
@@ -170,6 +176,8 @@ router.post('/classesApp/get', function(req, res, next) {
  * 
  */
 router.post('/classesApp/join', function(req, res, next) {
+    // 前端传过来的 参数
+    const params = req.body    
     const resData = ''
     console.log("--node中，routes —— find.js 中打印 req.url----->",req.url)
     console.log("--node中，routes —— find.js 中打印 req.method----->",req.method)
@@ -209,6 +217,8 @@ router.post('/classesApp/join', function(req, res, next) {
  * 
  */
 router.post('/customerApp/addCollect', function(req, res, next) {
+    // 前端传过来的 参数
+    const params = req.body    
     const resData = ''
     console.log("--node中，routes —— find.js 中打印 req.url----->",req.url)
     console.log("--node中，routes —— find.js 中打印 req.method----->",req.method)
@@ -248,6 +258,8 @@ router.post('/customerApp/addCollect', function(req, res, next) {
  * 
  */
 router.post('/customerApp/addCollect', function(req, res, next) {
+    // 前端传过来的 参数
+    const params = req.body    
     const resData = ''
     console.log("--node中，routes —— find.js 中打印 req.url----->",req.url)
     console.log("--node中，routes —— find.js 中打印 req.method----->",req.method)
