@@ -7,8 +7,8 @@ var path = require('path')
 console.log("__dirname = %s", path.resolve(__dirname));
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });  // 发送的是 ejs 模板引擎  views 中的 index.ejs 文件内容
+router.get('*', function(req, res, next) {
+  // res.render('index', { title: 'Express' });  // 发送的是 ejs 模板引擎  views 中的 index.ejs 文件内容
   // res.send('../public/pages/index.html','text/html')
   // var html = '<div>jdkfjsk</div>'
   // res.send(html)
@@ -18,14 +18,15 @@ router.get('/', function(req, res, next) {
   // res.status(404).send('Sorry, we cannot find that!');
   // res.status(500).send({ error: 'something blew up' });
   // res.sendFile('../pages/index.html')
+    console.log("---------------------------------",path.resolve(__dirname));
+    res.sendFile(path.resolve(__dirname, '../dist') + '/index.html');
 });
 
 router.get('/index', (req, res, next) => {
   // res.send("欢迎来到 express 的世界")
   // res.sendFile('../pages/index.html')
-  console.log(path.resolve(__dirname, '../pages') + '/index.html')
-  res.sendfile(path.resolve(__dirname, '../pages') + '/index.html');
-
+  console.log(path.resolve(__dirname, '../pages') + '/index.html');
+  res.sendFile(path.resolve(__dirname, '../pages') + '/index.html');
 })
 
 module.exports = router; 

@@ -193,6 +193,49 @@ router.post('/customerApp/shareImg', function(req, res, next) {
     }
 });
 
+/**
+ * 个推demo
+ */
+
+router.post('/getuiApp/tuisong', function(req, res, next) {
+    let params = req.body
+
+    console.log("【--node中，routes —— app.js 中打印 req.body----->】",req.body)
+
+    console.log("【--node中，routes —— app.js 中打印 req.url----->】",req.url)
+    console.log("【--node中，routes —— app.js 中打印 req.method----->】",req.method)
+
+    console.log("【-node-service 中接口saveFormIds打印传入的req.headers--------->】", req.headers)
+  
+    console.log("【-node-service 中接口saveFormIds打印传入的req.params--------->】", req.params)
+
+    console.log("【-node-service 中接口saveFormIds打印传入的req.route--------->】", req.route)   
+    
+    if( req.url === '/getuiApp/tuisong' && req.method === 'POST' ){
+        // node js 作为中间件 调用 java后台的接口
+        // commApi.saveFormIds(params).then(data => {
+        //     console.log("nodejs，调用java后台的saveFormIds接口后返回的数据--------》", data)
+        //     if(data){
+        //         // 将从java 后台获取的数据返给前台页面
+        //         res.send(data)
+        //     }else {
+        //         res.send({
+        //             code: 0,
+        //             msg: "数据获取失败"
+        //         })
+        //     }
+        // })
+        commApi.getuiPush(params).then(data => {
+            console.log("----调用个推的接口成功------")
+            if(data){
+                console.log("----调用个推的接口成功的res------", res)
+                res.send(data)
+            }
+        })
+    }else {
+        console.log("【-node-service 中接口saveFormIds】请求中打印的错误信息")        
+    }
+})
 
 
 module.exports = router;
