@@ -1,12 +1,7 @@
 // var monngodb = require('./db/db')   // 引入mongodb 
-// var mysql = require('./pool/mysql')  // 引入 mysql 数据库
-// mysql().then(res => {
-//   if(res){
-//     console.log("app.js中：mysql数据库连接成功")
-//   }else {
-//     console.log("mysql数据库连接失败")
-//   }
-// })
+
+var mysql = require('./pool/mysql')  // 引入 mysql 数据库
+
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -67,6 +62,11 @@ app.use('/find', findRouter);
 app.use('/sign', signRouter);
 app.use('/my', myRouter);
 app.use('/app', appRouter);
+
+
+// 开启一个定时器
+var timing = require('./utils/TimingProcessing')
+timing.timingProcessing()
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

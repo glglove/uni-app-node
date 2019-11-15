@@ -18,14 +18,14 @@ router.get('*', function(req, res, next) {
   // res.status(404).send('Sorry, we cannot find that!');
   // res.status(500).send({ error: 'something blew up' });
   // res.sendFile('../pages/index.html')
-    console.log("---------------------------------",path.resolve(__dirname));
+    // console.log("---------------------------------",path.resolve(__dirname));
     res.sendFile(path.resolve(__dirname, '../dist') + '/index.html');
 });
 
 router.get('/index', (req, res, next) => {
   // res.send("欢迎来到 express 的世界")
   // res.sendFile('../pages/index.html')
-  console.log(path.resolve(__dirname, '../pages') + '/index.html');
+  // console.log(path.resolve(__dirname, '../pages') + '/index.html');
   res.sendFile(path.resolve(__dirname, '../pages') + '/index.html');
 })
 

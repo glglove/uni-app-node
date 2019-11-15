@@ -1,6 +1,5 @@
 var express = require('express');
 var router = express.Router();
-const db = require('../db/db');
 const path = require('path');
 const querystring = require("querystring")
 const signApi = require('../api/sign')
