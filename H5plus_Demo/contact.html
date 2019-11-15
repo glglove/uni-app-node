@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">获取手机通讯录联系人</h1>
+		</header>
+
+		<div class="mui-content" id="contactContainer">
+			<button type="button" class="mui-btn mui-btn-blue mui-btn-block" onclick="getPhoneContact()">获取通讯录联系人</button>
+
+			<ul class="mui-table-view">
+			        <li class="mui-table-view-cell" v-for="item in contactsInfo" @tap="call(item.phoneNumbers[0])">
+			            <a class="mui-navigate-right">
+			                {{item.id}} &nbsp;{{item.displayName}}
+			            </a>
+			        </li>
+			</ul>
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			var contactsObj = new Vue({
+				el: "#contactContainer",
+				data: {
+					contactsInfo: []
+				}
+
+			});
+			mui.init();
+			function getPhoneContact() {
+				//
+				plus.contacts.getAddressBook(
+					plus.contacts.ADDRESSBOOK_PHONE,
+					function(addressbook){
+						//addressbook通讯录对象
+						//在通讯录中查找联系人 void addressbook.find( contactFields, successCB, errorCB, findOptions );
+						addressbook.find(["id","displayName","phoneNumbers"],function(contacts){
+								contactsObj.contactsInfo=contacts;
+							},function(){
+								mui.alert("获取失败！");
+							}
+						);
+					},
+					function(){
+						mui.alert("error");
+					}
+				);
+			}
+			function call(phone){
+				plus.device.dial(phone.value,true);
+			}
+		</script>
+	</body>
+
+</html>

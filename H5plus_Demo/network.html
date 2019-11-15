@@ -1,0 +1,73 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">手机网络信息</h1>
+		</header>
+
+		<div class="mui-content">
+			<button type="button" class="mui-btn mui-btn-blue mui-btn-block" onclick="showNetWorkInfo()">查看手机当前网络状态</button>
+		</div>
+
+		<script src="js/mui.min.js"></script>
+		<script type="text/javascript">
+			mui.init();
+			/*
+			 网络类型说明
+			 网络状态常量，表示当前设备网络状态未知，固定值为0。
+			 网络状态常量，当前设备网络未连接网络，固定值为1。
+			 网络状态常量，当前设备连接到有线网络，固定值为2。
+			 网络状态常量，当前设备连接到无线WIFI网络，固定值为3。
+			 网络状态常量，当前设备连接到蜂窝移动2G网络，固定值为4。
+			 网络状态常量，当前设备连接到蜂窝移动3G网络，固定值为5。
+			 网络状态常量，当前设备连接到蜂窝移动4G网络，固定值为6。
+			 * */
+			function showNetWorkInfo() {
+				var networkState = plus.networkinfo.getCurrentType();
+				if(networkState == 0 || networkState == 1) {
+					mui.alert("未连接网络");
+				} else if(networkState == 2) {
+					mui.alert("连接到有线网络");
+				} else if(networkState == 3) {
+					mui.alert("连接到无线WIFI网络");
+				} else if(networkState == 4) {
+					mui.alert("连接到蜂窝移动2G网络");
+				} else if(networkState == 5) {
+					mui.alert("连接到蜂窝移动3G网络");
+				} else if(networkState == 6) {
+					mui.alert("连接到蜂窝移动4G网络");
+				}  
+			}
+			//监听网络切换
+			document.addEventListener("netchange",function(){
+				var networkState=plus.networkinfo.getCurrentType();
+				switch(networkState){
+					case 0:
+					case 1:
+						mui.alert("无法连接网络");break;
+					case 2:
+						mui.alert("连接到有线网络");break;
+					case 3:
+						mui.alert("连接到WIFI网络"); break;
+					case 4:
+						mui.alert("连接到蜂窝移动2G网络");break;
+					case 5:
+						mui.alert("连接到蜂窝移动3G网络"); break;
+					case 6:
+						mui.alert("连接到蜂窝移动4G网络"); break;
+				}
+			});
+		</script>
+	</body>
+
+</html>
