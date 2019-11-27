@@ -11,6 +11,7 @@ var bodyParser= require('body-parser')
 var request = require('request')
 
 
+
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var findRouter = require('./routes/find');
@@ -20,6 +21,9 @@ var appRouter = require('./routes/app')
 
 var cors = require("cors")
 var app = express();
+
+
+
 app.use(cors())
 
 // 自定义跨域中间件
@@ -64,6 +68,8 @@ app.use('/my', myRouter);
 app.use('/app', appRouter);
 
 
+
+
 // 开启一个定时器
 var timing = require('./utils/TimingProcessing')
 timing.timingProcessing()
@@ -84,5 +90,20 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+
+
+//监听客户端链接,回调函数会传递本次链接的socket
+io.on('connection', socket => {
+  // 监听客户端发送的信息
+  socket.on("sentToServer", message => {
+      // 给客户端返回信息
+      io.emit("sendToClient", {message});
+  });
+});
+
+// 监听连接断开事件
+socket.on("disconnect", () => {
+  console.log("连接已断开...");
+});
 
 module.exports = app;
