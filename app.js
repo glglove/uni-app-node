@@ -1,6 +1,6 @@
 // var monngodb = require('./db/db')   // 引入mongodb 
 
-// var mysql = require('./pool/mysql')  // 引入 mysql 数据库
+var mysql = require('./pool/mysql')  // 引入 mysql 数据库
 
 var createError = require('http-errors');
 var express = require('express');
@@ -88,22 +88,6 @@ app.use(function(err, req, res, next) {
   // render the error page
   res.status(err.status || 500);
   res.render('error');
-});
-
-
-
-//监听客户端链接,回调函数会传递本次链接的socket
-io.on('connection', socket => {
-  // 监听客户端发送的信息
-  socket.on("sentToServer", message => {
-      // 给客户端返回信息
-      io.emit("sendToClient", {message});
-  });
-});
-
-// 监听连接断开事件
-socket.on("disconnect", () => {
-  console.log("连接已断开...");
 });
 
 module.exports = app;
