@@ -1,6 +1,6 @@
 // var monngodb = require('./db/db')   // 引入mongodb 
 
-var mysql = require('./pool/mysql')  // 引入 mysql 数据库
+// var mysql = require('./pool/mysql')  // 引入 mysql 数据库
 
 var createError = require('http-errors');
 var express = require('express');

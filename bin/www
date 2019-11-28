@@ -36,15 +36,18 @@ var io = require('socket.io').listen(server)
 io.on('connection', socket => {
   // 监听客户端发送的信息
   socket.on("sentToServer", message => {
-      // 给客户端返回信息
-      io.emit("sendToClient", {message});
+    // 给客户端返回信息
+    io.emit("sendToClient", {message});
+  });
+
+  // 监听连接断开事件
+  socket.on("disconnect", () => {
+    console.log("连接已断开...");
   });
 });
 
-// 监听连接断开事件
-socket.on("disconnect", () => {
-  console.log("连接已断开...");
-});
+
+
 /**
  * Normalize a port into a number, string, or false.
  */
