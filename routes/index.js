@@ -11,7 +11,9 @@ router.get('/index', (req, res, next) => {
   // res.send("欢迎来到 express 的世界")
   // res.sendFile('../pages/index.html')
   // console.log(path.resolve(__dirname, '../pages') + '/index.html');
-  res.sendFile(path.resolve(__dirname, '../pages') + '/index.html');
+  // res.sendFile(path.resolve(__dirname, '../pages') + '/index.html');
+  res.sendFile(path.resolve(__dirname, '../dist') + '/index.html');
+
   next()
 })
 

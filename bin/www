@@ -35,11 +35,17 @@ var io = require('socket.io').listen(server)
 //监听客户端链接,回调函数会传递本次链接的socket
 io.on('connection', socket => {
   // 监听客户端发送的信息
-  socket.on("sentToServer", message => {
-    // 给客户端返回信息
-    io.emit("sendToClient", {message});
-  });
+  // socket.on("sentToServer", message => {
+  //   // 给客户端返回信息
+  //   io.emit("sendToClient", {message});
+  // });
+  // 连接成功后向客户端发送
+  io.emit("connectionSuccess","这是node服务器发送过来的消息:socket连接成功！")
 
+  socket.on("testMsg", (msg) => {
+    // 监听客户端发送过来的 testMsg 事件
+    console.log("客户端发送过来的testMsg事件-------", JSON.stringify(msg))
+  })
   // 监听连接断开事件
   socket.on("disconnect", () => {
     console.log("连接已断开...");
