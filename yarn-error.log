@@ -1,0 +1,52 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+
+PATH: 
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Administrator\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\MongoDB\Server\4.0\bin;C:\Program Files\nodejs;F:\HBuilderX\plugins\launcher\tools\adbs;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Roaming\npm
+
+Yarn version: 
+  1.17.3
+
+Node version: 
+  10.16.2
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: ENOENT: no such file or directory, copyfile 'C:\Users\Administrator\AppData\Local\Yarn\Cache\v4\npm-inherits-2.0.3-633c2c83e3da42a502f52466022480f4208261de\node_modules\inherits\inherits.js' -> 'F:\git-uni-app\node-service\node_modules\body-parser\node_modules\inherits\inherits.js'
+
+npm manifest: 
+  {
+    "name": "nodedemo",
+    "version": "0.0.0",
+    "private": true,
+    "scripts": {
+      "start": "node ./bin/www"
+    },
+    "dependencies": {
+      "body-parser": "^1.19.0",
+      "cookie-parser": "~1.4.4",
+      "cors": "^2.8.5",
+      "debug": "~2.6.9",
+      "ejs": "~2.6.1",
+      "express": "~4.16.1",
+      "http-errors": "~1.6.3",
+      "mongoose": "^5.5.13",
+      "morgan": "~1.9.1",
+      "mysql": "^2.17.1",
+      "nodemon": "^1.19.1",
+      "querystring": "^0.2.0",
+      "request": "^2.88.0",
+      "require": "^2.4.20",
+      "socket.io": "^2.3.0",
+      "underscore": "^1.9.1",
+      "uuid": "^3.3.2"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
