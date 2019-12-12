@@ -3,7 +3,10 @@ var _ = require('underscore');
 module.exports =  {
     socketUrl: '127.0.0.1:5000',
     hashName: new Array(),
-    connect: function(io){
+    connect: function(server){
+        // 引入 socket.io 
+        var io = require('socket.io').listen(server)
+  
         //监听客户端链接,回调函数会传递本次链接的socket
         io.on('connection', socket => {
             console.log("连接成功后node服务端打印连接成功后的socket.id-----",socket.id)
@@ -17,6 +20,7 @@ module.exports =  {
 
             // 连接成功后向客户端发送
             io.emit("connectionSuccess","这是node服务器发送过来的消息:socket连接成功！")
+
             // 监听 客户端发过来的 bindId 事件
             socket.on("bindId", (data) => {
                 let userId = data.userId
@@ -66,6 +70,7 @@ module.exports =  {
                 }
 
             })
+            
             // 监听连接断开事件
             socket.on("disconnect", () => {
                 console.log("连接已断开...");
