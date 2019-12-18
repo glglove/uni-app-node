@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<link href="css/mui.min.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		
+		<header class="mui-bar mui-bar-nav">
+		    <a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+		    <h1 class="mui-title">设备</h1>
+		</header>
+		
+		<div class="mui-content" id="deviceContainer">
+		    <button type="button" class="mui-btn mui-btn-blue mui-btn-block" onclick="showDeviceInfo()">查看手机设备信息</button>
+		    
+		    <textarea name="" rows="10" cols="">{{deviceInfo}}</textarea>
+		</div>
+		
+		<script src="js/mui.min.js"></script>
+		<script src="js/vue.min.js"></script>
+		<script type="text/javascript">
+			var device=new Vue({
+				el:"#deviceContainer",
+				data:{
+					deviceInfo:[]
+				}
+			});
+			mui.init();
+			function showDeviceInfo(){
+				var devicesInfo="";
+				devicesInfo="移动设备的身份码："+plus.device.imei+"  "+
+						"移动设备的识别码："+plus.device.imsi+"  "+
+						"移动设备的型号："+plus.device.model+"  "+
+						"移动设备的生产厂商："+plus.device.vendor+"  "+
+						"移动设备的系统版本："+plus.os.version+"  "+
+						"移动设备的系统名称："+plus.os.name+"  "+
+						"移动设备的系统供应商："+plus.os.vendor;
+				device.deviceInfo=devicesInfo;
+			}
+		</script>
+	</body>
+
+</html>
