@@ -26,21 +26,6 @@ module.exports =  {
                 console.log("服务端 接收客户端 发送来的 bindId 事件", JSON.stringify(data))
             })
             
-            // var toName = data.to_Name;
-            // // 发送的目标客户的token
-            // var toToken = data.to_Token;
-
-            // if (toToken = this.hashName[toName]) {
-            //     // nodejs的underscore扩展中的findWhere方法，可以在对象集合中，通过对象的属性值找到该对象并返回。
-            //     var toSocket = _.findWhere(io.sockets.sockets, {id: toId});
-        
-            //     // socket.emit() ：向建立该连接的客户端广播
-            //     // socket.broadcast.emit() ：向除去建立该连接的客户端的所有客户端广播
-            //     // io.sockets.emit() ：向所有客户端广播，等同于上面两个的和
-        
-            //     // 通过该连接对象（toSocket）与链接到这个对象的客户端进行单独通信   
-            // }       
-        
             socket.on("testMsg", (data) => {
             // 监听客户端发送过来的 testMsg 事件
                 console.log("客户端发送过来的testMsg事件-------", JSON.stringify(data))
@@ -49,6 +34,8 @@ module.exports =  {
                 var to_Token = data.to_Token
                 var from_Id = data.from_Id
                 var from_Token = data.from_Token
+                var to_url = data.to_url
+                var to_url_type = data.to_url_type
                 // this.hashName[data.from_Id] = socket.id
                 console.log("----------------",this.hashName[data.from_Id])
                 if(this.hashName[from_Id]){
@@ -56,9 +43,11 @@ module.exports =  {
                     // 通过_.findWhere() 方法来找到 指定的这个socket 对象
                     var fromSocketObj = _.findWhere(io.sockets.sockets, {id: this.hashName[data.from_Id]})
                     // 向指定的某一个客户端发送消息
-                    fromSocketObj.emit("emitFixed",{
+                    fromSocketObj.emit("emitFixedCustomerInfo",{
                         from_id: from_Id,
-                        from_msg: msg
+                        from_msg: msg,
+                        to_url: to_url,
+                        to_url_type: to_url_type
                     })
                     // 向除了指定的客户端以外的用户发送消息
                     // fromSocketObj.broadcast.emit("emitFixed", {
