@@ -38,14 +38,15 @@ module.exports =  {
                 var to_url_type = data.to_url_type
                 // this.hashName[data.from_Id] = socket.id
                 console.log("----------------",this.hashName[data.from_Id])
-                if(this.hashName[from_Id]){
+                if(this.hashName[to_Id]){
                     // 该用户在线
                     // 通过_.findWhere() 方法来找到 指定的这个socket 对象
-                    var fromSocketObj = _.findWhere(io.sockets.sockets, {id: this.hashName[data.from_Id]})
+                    var fromSocketObj = _.findWhere(io.sockets.sockets, {id: this.hashName[data.to_Id]})
                     // 向指定的某一个客户端发送消息
                     fromSocketObj.emit("emitFixedCustomerInfo",{
                         from_id: from_Id,
-                        from_msg: msg,
+                        to_msg: msg,
+                        to_Id: to_Id,
                         to_url: to_url,
                         to_url_type: to_url_type
                     })
