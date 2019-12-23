@@ -1,6 +1,6 @@
 // var monngodb = require('./db/db')   // 引入mongodb 
 
-// var mysql = require('./pool/mysql')  // 引入 mysql 数据库
+var mysqlConnection = require('./pool/mysql')  // 引入 mysql 数据库
 
 var createError = require('http-errors');
 var express = require('express');
@@ -17,7 +17,8 @@ var usersRouter = require('./routes/users');
 var findRouter = require('./routes/find');
 var signRouter = require('./routes/sign');
 var myRouter = require('./routes/mine');
-var appRouter = require('./routes/app')
+var appRouter = require('./routes/app');
+var paperRouter = require('./routes/paper')
 
 var cors = require("cors")
 var app = express();
@@ -69,6 +70,7 @@ app.use('/find', findRouter);
 app.use('/sign', signRouter);
 app.use('/my', myRouter);
 app.use('/app', appRouter);
+app.use('/paper', paperRouter);
 
 
 

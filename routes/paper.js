@@ -1,6 +1,10 @@
 var express = require('express');
 var router = express.Router();
 const path = require('path');
+// 引入mysql 数据库对象
+const mysqlConnection = require("../pool/mysql")
+var bodyParser= require('body-parser')
+
 
 // 引入user 的模型
 const Users = require("../model/user");
@@ -59,5 +63,21 @@ router.get('/register', function(req, res, next) {
 });
 
 
+// 获取 小纸条未读消息接口
+router.post("/getMessage", function(req, res, next){
+    // console.log(res.body)
+    let params = res.body
+    console.log("【-node-service 中getMessage接口打印传入的req.body--------->】", req.body)    
+    // 查询数据库
+    let getMessage_sql = 'SELECT * FROM usermessage'
+    mysqlConnection.query(getMessage_sql, function(err, result){
+        if(err){
+            console.log('[query]-:'+err)
+        }else {
+            console.log(result)
+            res.send(result)            
+        }
+    })
+})
 
 module.exports = router;
