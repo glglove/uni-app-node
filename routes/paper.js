@@ -65,19 +65,76 @@ router.get('/register', function(req, res, next) {
 
 // 获取 小纸条未读消息接口
 router.post("/getMessage", function(req, res, next){
-    // console.log(res.body)
-    let params = res.body
+    let params = req.body
+    let to_userId = params.to_userId || null
+    let from_id = params.from_id || null 
+    let from_name = params.from_name || null
+    let msg_type = params.msg_type || null
+    let from_msg = params.from_msg || null
+    let from_phone = params.from_phone || null
+    let from_headPic = params.from_headPic || null
+    let from_time = params.from_time || null
+
     console.log("【-node-service 中getMessage接口打印传入的req.body--------->】", req.body)    
     // 查询数据库
-    let getMessage_sql = 'SELECT * FROM usermessage'
+    let getMessage_sql = `SELECT * FROM usermessage where userId = ${to_userId}`
     mysqlConnection.query(getMessage_sql, function(err, result){
         if(err){
-            console.log('[query]-:'+err)
+          console.log('[query]-:'+err)
         }else {
-            console.log(result)
-            res.send(result)            
+          console.log(result)
+          res.send(result)            
         }
     })
+})
+
+// 保存 小纸条未读消息接口
+router.post("/saveMessage", function(req, res, next){
+  let params = req.body
+  let to_userId = params.to_userId || null
+  let from_id = params.from_id || null 
+  let from_name = params.from_name || null
+  let msg_type = params.msg_type || null
+  let from_msg = params.from_msg || null
+  let from_phone = params.from_phone || null
+  let from_headPic = params.from_headPic || null
+  let from_time = params.from_time || null
+  console.log("【-node-service 中saveMessage接口打印传入的req.body--------->】", req.body)    
+  // 查询数据库
+  let saveMessage_sql = `INSERT INTO usermessage(userId, from_id, from_name, msg_type, from_msg, from_phone, from_headPic, from_time) 
+                          VALUES (${to_userId}, ${from_id}, '${from_name}', '${msg_type}', '${from_msg}', '${from_phone}', '${from_headPic}', '${from_time}')`
+  mysqlConnection.query(saveMessage_sql, function(err, result){
+      if(err){
+        console.log('[query]-:'+err)
+      }else {
+        console.log(result)
+        res.send(result)            
+      }
+  })
+})
+
+// 删除 小纸条未读消息接口
+router.post("/deleteMessage", function(req, res, next){
+  let params = req.body
+  let to_userId = params.to_userId || null
+  let from_id = params.from_id || null 
+  let from_name = params.from_name || null
+  let msg_type = params.msg_type || null
+  let from_msg = params.from_msg || null
+  let from_phone = params.from_phone || null
+  let from_headPic = params.from_headPic || null
+  let from_time = params.from_time || null
+  console.log("【-node-service 中deleteMessage接口打印传入的req.body--------->】", req.body)    
+  // 查询数据库
+  let deleteMessage_sql = `delete from usermessage where userId = ${to_userId}`
+  mysqlConnection.query(deleteMessage_sql, function(err, result){
+      if(err){
+          console.log('[query]-:'+err)
+      }else {
+          console.log(result)
+          res.send(result)            
+      }
+  })
 })
 
 module.exports = router;
