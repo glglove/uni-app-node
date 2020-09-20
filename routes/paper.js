@@ -2,12 +2,12 @@ var express = require('express');
 var router = express.Router();
 const path = require('path');
 // 引入mysql 数据库对象
-const mysqlConnection = require("../pool/mysql")
+// const mysqlConnection = require("../pool/mysql")
 var bodyParser= require('body-parser')
 
 
 // 引入user 的模型
-const Users = require("../model/user");
+// const Users = require("../model/user");
 const UsersApi = require("../api/userApi");
 
 router.get('/register', function(req, res, next) {

@@ -1,5 +1,4 @@
 // var monngodb = require('./db/db')   // 引入mongodb 
-
 // var mysqlConnection = require('./pool/mysql')  // 引入 mysql 数据库
 
 var createError = require('http-errors');
@@ -12,12 +11,12 @@ var request = require('request')
 
 
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-var findRouter = require('./routes/find');
-var signRouter = require('./routes/sign');
-var myRouter = require('./routes/mine');
-var appRouter = require('./routes/app');
+// var indexRouter = require('./routes/index');
+// var usersRouter = require('./routes/users');
+// var findRouter = require('./routes/find');
+// var signRouter = require('./routes/sign');
+// var myRouter = require('./routes/mine');
+// var appRouter = require('./routes/app');
 var paperRouter = require('./routes/paper')
 
 var wxRouter = require('./routes/wx');//首次接入微信，自动回复功能
@@ -66,21 +65,15 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/users/register', express.static(path.join(__dirname, 'pages')))
 
-app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/find', findRouter);
-app.use('/sign', signRouter);
-app.use('/my', myRouter);
-app.use('/app', appRouter);
-app.use('/paper', paperRouter);
+// app.use('/', indexRouter);
+// app.use('/users', usersRouter);
+// app.use('/find', findRouter);
+// app.use('/sign', signRouter);
+// app.use('/my', myRouter);
+// app.use('/app', appRouter);
+// app.use('/paper', paperRouter);
 app.use('/wx',wxRouter);
 
-
-
-
-// 开启一个定时器
-var timing = require('./utils/TimingProcessing')
-timing.timingProcessing()
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
