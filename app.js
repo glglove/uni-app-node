@@ -1,6 +1,6 @@
 // var monngodb = require('./db/db')   // 引入mongodb 
 
-var mysqlConnection = require('./pool/mysql')  // 引入 mysql 数据库
+// var mysqlConnection = require('./pool/mysql')  // 引入 mysql 数据库
 
 var createError = require('http-errors');
 var express = require('express');
@@ -19,6 +19,8 @@ var signRouter = require('./routes/sign');
 var myRouter = require('./routes/mine');
 var appRouter = require('./routes/app');
 var paperRouter = require('./routes/paper')
+
+var wxRouter = require('./routes/wx');//首次接入微信，自动回复功能
 
 var cors = require("cors")
 var app = express();
@@ -71,6 +73,7 @@ app.use('/sign', signRouter);
 app.use('/my', myRouter);
 app.use('/app', appRouter);
 app.use('/paper', paperRouter);
+app.use('/wx',wxRouter);
 
 
 
