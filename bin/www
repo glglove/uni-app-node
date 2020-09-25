@@ -9,6 +9,9 @@ var debug = require('debug')('nodedemo:server');
 var http = require('http');
 var socket = require('../utils/socket');
 
+// 开启一个定时器
+var timing = require('../utils/TimingProcessing')
+
 /**
  * Get port from environment and store in Express.
  */
@@ -91,6 +94,7 @@ function onError(error) {
 
 function onListening() {
   console.log(`---------【service is running on port: ${port}!!!!!】-----------`)
+  timing.timingProcessing()
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr

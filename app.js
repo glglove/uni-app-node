@@ -1,6 +1,6 @@
 // var monngodb = require('./db/db')   // 引入mongodb 
 
-var mysqlConnection = require('./pool/mysql')  // 引入 mysql 数据库
+// var mysqlConnection = require('./pool/mysql')  // 引入 mysql 数据库
 
 var createError = require('http-errors');
 var express = require('express');
@@ -73,11 +73,6 @@ app.use('/app', appRouter);
 app.use('/paper', paperRouter);
 
 
-
-
-// 开启一个定时器
-var timing = require('./utils/TimingProcessing')
-timing.timingProcessing()
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

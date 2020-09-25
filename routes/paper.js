@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 const path = require('path');
 // 引入mysql 数据库对象
-const mysqlConnection = require("../pool/mysql")
+// const mysqlConnection = require("../pool/mysql")
 var bodyParser= require('body-parser')
 
 
