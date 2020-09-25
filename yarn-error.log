@@ -1,20 +1,20 @@
 Arguments: 
-  C:\Program Files\nodejs\node.exe C:\Users\Administrator\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js install
+  C:\Program Files\nodejs\node.exe C:\Users\33131\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js add wechat jssha xml2js --save-dev
 
 PATH: 
-  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\Administrator\bin;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Git\cmd;C:\Program Files\MongoDB\Server\4.0\bin;C:\Program Files\nodejs;F:\HBuilderX\plugins\launcher\tools\adbs;C:\Users\Administrator\AppData\Local\Microsoft\WindowsApps;C:\Users\Administrator\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\Administrator\AppData\Roaming\npm
+  C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\33131\bin;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\iCLS;C:\Program Files\Intel\Intel(R) Management Engine Components\iCLS;C:\Windows\System32;C:\Windows;C:\Windows\System32\wbem;C:\Windows\System32\WindowsPowerShell\v1.0;C:\Windows\System32\OpenSSH;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files\Git\cmd;C:\Program Files\nodejs;C:\Users\33131\AppData\Roaming\Microsoft\Windows\Start Menu\Programs;C:\Program Files\MongoDB\Server\4.0\bin;*;C:\Program Files\Git\软件安装包\HBuilderX.1.9.9.20190522.full\HBuilderX\plugins\launcher\tools\adbs;D:\kui-java\jdk1.8.0_91\bin;D:\kui-java\jdk1.8.0_91\jre\bin;C:\Program Files\nodejs;C:\Users\33131\AppData\Local\Microsoft\WindowsApps;C:\Users\33131\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\nodejs;C:\Users\33131\AppData\Roaming\Microsoft\Windows\Start Menu\Programs;C:\Users\33131\AppData\Roaming\npm
 
 Yarn version: 
-  1.17.3
+  1.15.2
 
 Node version: 
-  10.16.2
+  12.18.3
 
 Platform: 
   win32 x64
 
 Trace: 
-  Error: ENOENT: no such file or directory, copyfile 'C:\Users\Administrator\AppData\Local\Yarn\Cache\v4\npm-inherits-2.0.3-633c2c83e3da42a502f52466022480f4208261de\node_modules\inherits\inherits.js' -> 'F:\git-uni-app\node-service\node_modules\body-parser\node_modules\inherits\inherits.js'
+  Error: ENOENT: no such file or directory, copyfile 'C:\Users\33131\AppData\Local\Yarn\Cache\v4\npm-statuses-1.5.0-161c7dac177659fd9811f43771fa99381478628c\node_modules\statuses\codes.json' -> 'D:\git-nodeProgram\uni-app-node\node_modules\body-parser\node_modules\statuses\codes.json'
 
 npm manifest: 
   {

@@ -1,5 +1,5 @@
 // 引入 users 模型
-const Users = require('../model/user')
+// const Users = require('../model/user')
 // const httpPost = require('../request/users')
 // 引入 bcrypt
 const apiConfig = require('./config')

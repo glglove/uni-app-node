@@ -7,7 +7,7 @@ var bodyParser= require('body-parser')
 
 
 // 引入user 的模型
-const Users = require("../model/user");
+// const Users = require("../model/user");
 const UsersApi = require("../api/userApi");
 
 router.get('/register', function(req, res, next) {

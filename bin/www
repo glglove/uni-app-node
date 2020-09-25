@@ -15,7 +15,8 @@ var timing = require('../utils/TimingProcessing')
 /**
  * Get port from environment and store in Express.
  */
-process.env.PORT = '5000'
+// process.env.PORT = '5000'
+console.log(`端口：${normalizePort(process.env.PORT)}`)
 var port = normalizePort(process.env.PORT || '5000');
 app.set('port', port);
 
@@ -94,7 +95,9 @@ function onError(error) {
 
 function onListening() {
   console.log(`---------【service is running on port: ${port}!!!!!】-----------`)
-  timing.timingProcessing()
+  // 开启一个定时器
+  var timing = require('../utils/TimingProcessing')
+  timing.timingProcessing()  
   var addr = server.address();
   var bind = typeof addr === 'string'
     ? 'pipe ' + addr

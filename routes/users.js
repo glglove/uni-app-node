@@ -3,7 +3,7 @@ var router = express.Router();
 const path = require('path');
 
 // 引入user 的模型
-const Users = require("../model/user");
+// const Users = require("../model/user");
 const UsersApi = require("../api/userApi");
 
 router.get('/register', function(req, res, next) {

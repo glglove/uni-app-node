@@ -5,7 +5,7 @@ const querystring = require("querystring")
 const findApi = require('../api/find')
 var request = require('request')
 // 引入user 的模型
-const Users = require("../model/user");
+// const Users = require("../model/user");
 const UsersApi = require("../api/userApi");
 
 /* GET users listing. */
